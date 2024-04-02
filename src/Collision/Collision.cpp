@@ -1,5 +1,4 @@
 #include "Collision.h"
-#include "../Player/Player.h"
 
 //IsHitRect‚Ì’è‹`
 bool Collsion::IsHitRect(int Ax, int Ay, int Aw, int Ah, int Bx, int By, int Bw, int Bh) {
