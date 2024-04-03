@@ -140,6 +140,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="default_Main.cpp" />
+    <ClCompile Include="src\Collision\Collision.cpp" />
+    <ClCompile Include="src\FPS\FPS.cpp" />
+    <ClCompile Include="src\Input\Input.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Collision\Collision.h" />
+    <ClInclude Include="src\FPS\FPS.h" />
+    <ClInclude Include="src\Input\Input.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
