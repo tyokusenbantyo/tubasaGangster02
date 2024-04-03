@@ -51,7 +51,10 @@ void ScenePlay::Step()
 	if (BG_PosY[1] <= -720) {
 		BG_PosY[1] = 720;
 	}
+
+	//§ŒÀŽžŠÔ
 	timer.Load();
+
 	//g_CurrentSceneID = SCENE_ID_FIN_PLAY;
 }
 
