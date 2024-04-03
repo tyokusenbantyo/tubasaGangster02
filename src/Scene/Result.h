@@ -1,6 +1,6 @@
 #pragma once
 #include "../Input/Input.h"
-class SceneTitle
+class SceneResult
 {
 private:
 	//背景画像
@@ -8,9 +8,9 @@ private:
 
 public:
 
-	SceneTitle();
-	~SceneTitle();
-	//キーのクラスの宣言
+	SceneResult();
+	~SceneResult();
+	//キーのクラス宣言
 	Input input;
 
 	//初期化

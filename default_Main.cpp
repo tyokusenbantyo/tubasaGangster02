@@ -2,6 +2,8 @@
 #include "src/Scene/Scene.h"
 #include "src/Scene/Title.h"
 #include "src/Scene/Play.h"
+#include "src/Scene/Result.h"
+
 // define
 #define	SCREEN_SIZE_X	1280	// X方向の画面サイズを指定
 #define	SCREEN_SIZE_Y	720	// Y方向の画面サイズを指定
@@ -30,6 +32,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	//クラスの宣言
 	SceneTitle Title;
 	ScenePlay Play;
+	SceneResult Result;
 
 	//ゲームメインループ
 	while (ProcessMessage() != -1)
@@ -96,27 +99,27 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		}
 		break;
 
-		case SCENE_ID_INIT_CLEAR:
+		case SCENE_ID_INIT_RESULT:
 		{
 			//クリア初期化
-			//InitClear();
+			Result.Init();
 		}
 		break;
 
-		case SCENE_ID_LOOP_CLEAR:
+		case SCENE_ID_LOOP_RESULT:
 		{
 			//クリア通常処理
-			//StepClear();
+			Result.Step();
 
 			//クリア描画処理
-			//DrawClear();
+			Result.Draw();
 		}
 		break;
 
-		case SCENE_ID_FIN_CLEAR:
+		case SCENE_ID_FIN_RESULT:
 		{
 			//クリア後処理
-			//FinClear();
+			Result.Fin();
 		}
 		break;
 
@@ -130,15 +133,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		ScreenFlip();
 
 	}
-
-	//-----------------------------------------
-	//最後に１回だけやる処理をここに書く
-
-
-	//-----------------------------------------
 	//DXライブラリの後処理
 	DxLib_End();
-
 	return 0;
 }
 

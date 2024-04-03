@@ -16,7 +16,8 @@ void SceneTitle::Init()
 {
 	//画像の読み込み
 	BackGround = LoadGraph(TITLE_BACKGROUND_PATH);
-
+	//キーの初期化
+	input.Init();
 	//通常処理へ移動
 	g_CurrentSceneID = SCENE_ID_LOOP_TITLE;
 
@@ -25,8 +26,11 @@ void SceneTitle::Init()
 // タイトル通常処理
 void SceneTitle::Step()
 {
+	//キー
+	input.Step();
+
 	//スペースキーを押したら画面移動
-	if (CheckHitKey(KEY_INPUT_SPACE))
+ 	if (input.IsKeyPush(KEY_INPUT_SPACE))
 	{
 		g_CurrentSceneID = SCENE_ID_FIN_TITLE;
 	}

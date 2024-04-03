@@ -37,7 +37,7 @@ void ScenePlay::Init()
 
 	//制限時間
 	timer.Init();
-
+	timer.Load();
 }
 
 // タイトル通常処理
@@ -53,9 +53,11 @@ void ScenePlay::Step()
 	}
 
 	//制限時間
-	timer.Load();
+	timer.CountDown();
 
-	//g_CurrentSceneID = SCENE_ID_FIN_PLAY;
+	if (timer.tensPlace == 0 && timer.oncePlace == 0) {
+		g_CurrentSceneID = SCENE_ID_FIN_PLAY;
+	}
 }
 
 // タイトル描画処理
@@ -69,6 +71,9 @@ void ScenePlay::Draw()
 	DrawGraph(20, 0, Tuta[0], true);
 	DrawGraph(1200, 0, Tuta[1], true);
 
+	timer.Draw();
+
+	//デバッグ用
 	DrawFormatString(0, 0, GetColor(255, 0, 0), "上　%d", BG_PosY[0]);
 	DrawFormatString(0, 20, GetColor(255, 0, 0), "下　%d", BG_PosY[1]);
 }
@@ -77,5 +82,5 @@ void ScenePlay::Draw()
 void ScenePlay::Fin()
 {
 	// プレイシーンに移動
-	g_CurrentSceneID = SCENE_ID_INIT_CLEAR;
+	g_CurrentSceneID = SCENE_ID_INIT_RESULT;
 }

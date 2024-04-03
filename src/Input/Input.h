@@ -10,8 +10,6 @@ private:
 	//前フレームのキー情報
 	static char preKeyBuf[KEY_BUF_LEN];
 
-
-
 public:
 	//入力制御　初期化
 	static void Init();
