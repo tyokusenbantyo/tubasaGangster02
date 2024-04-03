@@ -28,8 +28,8 @@ void SceneResult::Step()
 {
 	//キー
 	input.Step();
-	//スペースキーを押したら画面移動
-	if (input.IsKeyPush(KEY_INPUT_SPACE))
+	//スペースキーを離したら画面移動
+	if (input.IsKeyRelease(KEY_INPUT_SPACE))
 	{
 		g_CurrentSceneID = SCENE_ID_FIN_RESULT;
 	}
