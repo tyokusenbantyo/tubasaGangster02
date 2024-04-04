@@ -10,8 +10,6 @@ public:
 
 	SceneTitle();
 	~SceneTitle();
-	//キーのクラスの宣言
-	Input input;
 
 	//初期化
 	void Init();

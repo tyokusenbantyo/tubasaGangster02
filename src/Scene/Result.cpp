@@ -17,7 +17,7 @@ void SceneResult::Init()
 	//画像の読み込み
 	BackGround = LoadGraph(TITLE_BACKGROUND_PATH);
 	//キーの初期化
-	input.Init();
+	InitInput();
 	//通常処理へ移動
 	g_CurrentSceneID = SCENE_ID_LOOP_RESULT;
 
@@ -27,9 +27,9 @@ void SceneResult::Init()
 void SceneResult::Step()
 {
 	//キー
-	input.Step();
+	StepInput();
 	//スペースキーを離したら画面移動
-	if (input.IsKeyRelease(KEY_INPUT_SPACE))
+	if (IsKeyRelease(KEY_INPUT_SPACE))
 	{
 		g_CurrentSceneID = SCENE_ID_FIN_RESULT;
 	}

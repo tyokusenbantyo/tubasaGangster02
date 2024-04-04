@@ -10,8 +10,6 @@ public:
 
 	SceneResult();
 	~SceneResult();
-	//キーのクラス宣言
-	Input input;
 
 	//初期化
 	void Init();
