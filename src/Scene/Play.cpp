@@ -5,6 +5,8 @@
 #define PLAY_BACKGROUND_PATH "data/02_Playimage/backGraund.png"
 #define PLAY_TUTA_PATH "data/02_Playimage/tuta.png"
 
+int g_CurrentScenePlayID = ID_PLAY_REDITION;
+
 ScenePlay::ScenePlay()
 {
 	for (int i = 0; i < 2; i++) {
@@ -48,6 +50,7 @@ void ScenePlay::Step()
 	switch (g_CurrentScenePlayID)
 	{
 	case ID_PLAY_REDITION:
+		g_CurrentScenePlayID = ID_PLAY_NOW;
 
 		break;
 
