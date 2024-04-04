@@ -25,11 +25,11 @@
     <Filter Include="ソース ファイル\Scene">
       <UniqueIdentifier>{b350c5ab-85b6-4418-99cb-b7d73ce851c1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Timer">
+      <UniqueIdentifier>{1b89af0f-101a-4ff0-b299-cb696554d386}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="default_Main.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="src\Input\Input.cpp">
       <Filter>ソース ファイル\Input</Filter>
     </ClCompile>
@@ -39,16 +39,49 @@
     <ClCompile Include="src\FPS\FPS.cpp">
       <Filter>ソース ファイル\FPS</Filter>
     </ClCompile>
+    <ClCompile Include="src\Scene\TItle.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Timer\Timer.cpp">
+      <Filter>ソース ファイル\Timer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\Result.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cracter\Character.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\Play.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Input\Input.h">
-      <Filter>ソース ファイル\Input</Filter>
-    </ClInclude>
     <ClInclude Include="src\Collision\Collision.h">
       <Filter>ソース ファイル\Collision</Filter>
     </ClInclude>
     <ClInclude Include="src\FPS\FPS.h">
       <Filter>ソース ファイル\FPS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\Scene.h">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\Title.h">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Timer\Timer.h">
+      <Filter>ソース ファイル\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\Result.h">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Input\Input.h">
+      <Filter>ソース ファイル\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cracter\Character.h">
+      <Filter>ソース ファイル</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
