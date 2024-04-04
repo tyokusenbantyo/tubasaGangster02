@@ -1,78 +1,64 @@
-#include "DxLib.h"
-#include "Input.h"
+#include"DxLib.h"
+#include"input.h"
 
+#define KEY_BUF_LEN	(256)
 
 //現在のフレームキー情報
-char Input::currentKeyBuf[KEY_BUF_LEN] = { 0 };
-
-//前フレームのキー情報
-char Input::preKeyBuf[KEY_BUF_LEN] = { 0 };
-
-
-
-//入力制御　初期化
-void Input::Init()
+char currntkeyBuf[KEY_BUF_LEN] = { 0 };
+//前のフレームのキー情報
+char preKeyBuf[KEY_BUF_LEN] = { 0 };
+//入力制御初期化
+void InitInput()
 {
 	for (int index = 0; index < KEY_BUF_LEN; index++)
 	{
-		currentKeyBuf[index] = '\0';
+		currntkeyBuf[index] = '\0';
 		preKeyBuf[index] = '\0';
 	}
 }
 
-
-//入力制御ステップ
-//他のstepより早く呼ぶ	
-void Input::Step()
+void StepInput()
 {
-	//前フレームのキー情報変数に記憶しておく
+	//前のフレームキー情報変数に記録しておく
 	for (int index = 0; index < KEY_BUF_LEN; index++)
 	{
-		preKeyBuf[index] = currentKeyBuf[index];
+		preKeyBuf[index] = currntkeyBuf[index];
 	}
 	//現在のキー情報を取得
-	GetHitKeyStateAll(currentKeyBuf);
+	GetHitKeyStateAll(currntkeyBuf);
 }
-//今押された
- bool Input::IsKeyPush(int key_code)
+
+bool IsKyePush(int key_code)
 {
-	// 前フレで押されてない　   かつ　現フレで押されている
-	if (preKeyBuf[key_code] == 0 && currentKeyBuf[key_code] == 1) {
-		return true;
-	}
+	//前フレで押されてない　かつ　現振れで押されている
+	if (preKeyBuf[key_code] == 0 && currntkeyBuf[key_code] == 1)
+	{
+		return true;	}
 
-	//押されていないので　false 
 	return false;
 }
 
-//押し続けられているか
-bool Input::IsKeyKeep(int key_code) {
-
-	// 前フレで押されてる　   かつ　現フレで押されている
-	if (preKeyBuf[key_code] == 1 && currentKeyBuf[key_code] == 1) {
+bool IsKeykeep(int key_code)											//押し続ける
+{
+	if (preKeyBuf[key_code] == 1 && currntkeyBuf[key_code] == 1)
+	{
 		return true;
 	}
 	return false;
 }
-
-
-//たった今離されたか
-bool Input:: IsKeyRelease(int key_code) {
-	
-	// 前フレで押されてる　   かつ　現フレで押されていない
-	if (preKeyBuf[key_code] == 1 && currentKeyBuf[key_code] == 0) {
+bool IsKeyRelease(int key_code)
+{
+	if (preKeyBuf[key_code] == 1 && currntkeyBuf[key_code] == 0)
+	{
 		return true;
 	}
-
-	//押されていないので　false 
 	return false;
 }
-
-//単純に押されているか
-bool Input:: IsKeyDown(int key_code) {
-	//現フレで押されている（前フレの状態は関係なし）
-	if (currentKeyBuf[key_code] == 1)
+bool IsKeyDown(int key_code)
+{
+	if (currntkeyBuf[key_code] == 1)
+	{
 		return true;
-
+	}
 	return false;
 }
