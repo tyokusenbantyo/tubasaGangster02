@@ -139,15 +139,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="default_Main.cpp" />
     <ClCompile Include="src\Collision\Collision.cpp" />
+    <ClCompile Include="src\Cracter\Character.cpp" />
     <ClCompile Include="src\FPS\FPS.cpp" />
     <ClCompile Include="src\Input\Input.cpp" />
+    <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\Scene\Play.cpp" />
+    <ClCompile Include="src\Scene\Result.cpp" />
+    <ClCompile Include="src\Scene\TItle.cpp" />
+    <ClCompile Include="src\Timer\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Collision\Collision.h" />
+    <ClInclude Include="src\Cracter\Character.h" />
     <ClInclude Include="src\FPS\FPS.h" />
     <ClInclude Include="src\Input\Input.h" />
+    <ClInclude Include="src\Scene\Result.h" />
+    <ClInclude Include="src\Scene\Scene.h" />
+    <ClInclude Include="src\Scene\Title.h" />
+    <ClInclude Include="src\Timer\Timer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
