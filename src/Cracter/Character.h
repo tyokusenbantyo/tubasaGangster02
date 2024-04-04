@@ -1,5 +1,6 @@
 #pragma once
 #include "DxLib.h"
+#include "../Input/Input.h"
 #define CHARACTER_MAX	(1)				//プレイヤーの人数を決める
 struct  Character
 {

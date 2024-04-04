@@ -23,15 +23,15 @@ void StepCharacter()		//キャラクターの移動処理
 {
 	for (int i = 0; i < CHARACTER_MAX; i++)
 	{
-		if (IsKeykeep(KEY_INPUT_A) == 1)
+		if (IsKeyKeep(KEY_INPUT_A) == 1)
 		{
 			character[i].x -= CHARACTER_SPEED;
 		}
-		if (IsKeykeep(KEY_INPUT_D) == 1)
+		if (IsKeyKeep(KEY_INPUT_D) == 1)
 		{
 			character[i].x += CHARACTER_SPEED;
 		}
-		if (IsKyePush(KEY_INPUT_SPACE) == 1)
+		if (IsKeyPush(KEY_INPUT_SPACE) == 1)
 		{
 			if (character[i].parasol == false)
 			{
