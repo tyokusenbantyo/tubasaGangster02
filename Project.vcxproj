@@ -143,6 +143,7 @@
     <ClCompile Include="src\Cracter\Character.cpp" />
     <ClCompile Include="src\FPS\FPS.cpp" />
     <ClCompile Include="src\Input\Input.cpp" />
+    <ClCompile Include="src\Item\Coin\Coin.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Scene\Play.cpp" />
     <ClCompile Include="src\Scene\Result.cpp" />
@@ -154,6 +155,8 @@
     <ClInclude Include="src\Cracter\Character.h" />
     <ClInclude Include="src\FPS\FPS.h" />
     <ClInclude Include="src\Input\Input.h" />
+    <ClInclude Include="src\Item\Coin\Coin.h" />
+    <ClInclude Include="src\Play\Play.h" />
     <ClInclude Include="src\Scene\Result.h" />
     <ClInclude Include="src\Scene\Scene.h" />
     <ClInclude Include="src\Scene\Title.h" />

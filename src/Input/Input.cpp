@@ -7,6 +7,7 @@
 char currntkeyBuf[KEY_BUF_LEN] = { 0 };
 //前のフレームのキー情報
 char preKeyBuf[KEY_BUF_LEN] = { 0 };
+
 //入力制御初期化
 void InitInput()
 {
@@ -28,7 +29,7 @@ void StepInput()
 	GetHitKeyStateAll(currntkeyBuf);
 }
 
-bool IsKyePush(int key_code)
+bool IsKeyPush(int key_code)
 {
 	//前フレで押されてない　かつ　現振れで押されている
 	if (preKeyBuf[key_code] == 0 && currntkeyBuf[key_code] == 1)
@@ -38,7 +39,7 @@ bool IsKyePush(int key_code)
 	return false;
 }
 
-bool IsKeykeep(int key_code)											//押し続ける
+bool IsKeyKeep(int key_code)											//押し続ける
 {
 	if (preKeyBuf[key_code] == 1 && currntkeyBuf[key_code] == 1)
 	{

@@ -28,7 +28,7 @@ void Character_Hit_Coin()
 }
 
 //初期化
-void Init()
+void PlayInit()
 {
 	//変数の初期化
 	for (int i = 0; i < 2; i++) {
@@ -64,7 +64,7 @@ void Init()
 //playerが遊ぶ
 //ID_PLAY_REDITIONとID_PLAY_FINSHは演出
 //★★★ID_PLAY_NOWの中に主な処理を書く★★★
-void Step()
+void PlayStep()
 {
 	switch (g_CurrentScenePlayID)
 	{
@@ -100,7 +100,7 @@ void Step()
 }
 
 //描画処理
-void Draw()
+void PlayDraw()
 {
 	//背景画像
 	DrawGraph(0, BG_PosY[0], BackGround[0], true);
@@ -137,7 +137,7 @@ void Draw()
 
 //終了処理
 //画面遷移や破棄処理を行う
-void Fin()
+void PlayFin()
 {
 	// プレイシーンに移動
 	g_CurrentSceneID = SCENE_ID_INIT_RESULT;

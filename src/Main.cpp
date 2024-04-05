@@ -61,16 +61,18 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			{
 				//タイトル初期化
 				title.Init();
+				//キー初期化
+				InitInput();
 			}
 			break;
 
 			case SCENE_ID_LOOP_TITLE:
 			{
-				//タイトル通常処理
-				title.Step();
-
-				//タイトル描画処理
-				title.Draw();
+				
+				title.Step();		//タイトル通常処理
+				StepInput();		//キー処理
+				
+				title.Draw();		//タイトル描画処理
 			}
 			break;
 
@@ -87,6 +89,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 				InitCharacter();	//キャラクターの初期化
 				InitCoin();			//コインの初期化
 
+				PlayInit();			//初期化
+				
+
 				g_CurrentSceneID = SCENE_ID_LOOP_PLAY;
 			}
 			break;
@@ -99,12 +104,22 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 				StepCharacterDraw();	//キャラクターの描画
 				DrawCoin();
 
+				PlayStep();				//遊でいる処理
+
 			}
+			case SCENE_ID_FIN_PLAY:
+			{
+				PlayFin();				//終了処理
+			}
+			break;
+
 			break;
 			case SCENE_ID_INIT_RESULT:
 			{
 				//クリア初期化
 				result.Init();
+				//キー初期化
+				InitInput();
 			}
 			break;
 
@@ -112,6 +127,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			{
 				//クリア通常処理
 				result.Step();
+				StepInput();		//キー処理
 
 				//クリア描画処理
 				result.Draw();
