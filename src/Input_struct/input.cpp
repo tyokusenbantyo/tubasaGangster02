@@ -33,8 +33,8 @@ bool IsKyePush(int key_code)
 	//前フレで押されてない　かつ　現振れで押されている
 	if (preKeyBuf[key_code] == 0 && currntkeyBuf[key_code] == 1)
 	{
-		return true;	}
-
+		return true;
+	}
 	return false;
 }
 

@@ -8,10 +8,10 @@ void InitCoin()
 	for (int i = 0; i < COIN_MAX; i++)
 	{
 		coin[i].x = 600;
-		coin[i].y = 0;
+		coin[i].y = 50;
 		coin[i].h = 64;
 		coin[i].w = 64;
-		coin[i].handle = LoadGraph("data/Playimage/coin_demo.png");
+		coin[i].handle = LoadGraph("data/02_Playimage/coin.png");
 	}
 	
 }

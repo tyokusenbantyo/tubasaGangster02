@@ -1,4 +1,6 @@
-#pragma once
+
+#ifndef __INPUT_H__
+#define __INPUT_H__
 
 //“ü—Í§Œä‰Šú‰»
 void InitInput();
@@ -19,4 +21,5 @@ bool IsKeyRelease(int key_code);
 //’Pƒ‚É‰Ÿ‚³‚ê‚Ä‚¢‚é‚©
 bool IsKeyDown(int key_code);
 
+#endif
 
