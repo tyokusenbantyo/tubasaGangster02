@@ -20,19 +20,18 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	//ウィンドウの状態を設定する
 	ChangeWindowMode(true);
 
+	// 画面サイズを変更
+	SetGraphMode(WINDOW_WIDTH, WINDOW_HEIGHT ,32);
+
 	//DXライブラリの初期化
 	if (DxLib_Init() == -1) {
 		return -1;
 	}
 
-	// 画面サイズを変更
-	SetGraphMode(WINDOW_WIDTH, WINDOW_HEIGHT ,32);
-
 	//描画するスクリーンを設定する
 	SetDrawScreen(DX_SCREEN_BACK);
 	
 	//-----------------------------------------
-	//一番最初に１回だけやる処理をここに書く
 	
 	//クラスの呼び出し
 	SceneTitle title;
@@ -52,10 +51,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 		//画面に表示されたものを初期化
 		ClearDrawScreen();
-
-		//-----------------------------------------
-		//ここからゲームの本体を書くことになる
-		//-----------------------------------------
 		
 		switch (g_CurrentSceneID)
 		{
@@ -101,7 +96,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			CoinBullet();				//コインの発射処理
 			coinMove();
 			CoinGravity();
-			//Character_Hit_Coin();		//キャラクターとコインの当たり判定
+			Character_Hit_Coin();		//キャラクターとコインの当たり判定
 
 			//描画
 			play.Draw();				//背景の描画
@@ -140,15 +135,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 		}
 		//-----------------------------------------
-		//ループの終わりに
 		//フリップ関数
 		ScreenFlip();
-
 	}
-
-	//-----------------------------------------
-	//最後に１回だけやる処理をここに書く
-
 
 	//-----------------------------------------
 	//DXライブラリの後処理

@@ -62,10 +62,11 @@ void Timer::Draw()
 	//一の位
 	DrawGraph(timePosX + 70 , timePosY, img01[oncePlace], true);
 
-	DrawFormatString(0, 60, GetColor(255, 0, 0), "ジュノくらい%d", tensPlace);
-	DrawFormatString(0, 80, GetColor(255, 0, 0), "一の位%d", oncePlace);
-	DrawFormatString(0, 100, GetColor(255, 0, 0), "??の位%d", tensPlaceC);
-	DrawFormatString(0, 120, GetColor(255, 0, 0), "?の位%d", oncePlaceC);
+	//デバッグ
+	//DrawFormatString(0, 60, GetColor(255, 0, 0), "ジュノくらい%d", tensPlace);
+	//DrawFormatString(0, 80, GetColor(255, 0, 0), "一の位%d", oncePlace);
+	//DrawFormatString(0, 100, GetColor(255, 0, 0), "??の位%d", tensPlaceC);
+	//DrawFormatString(0, 120, GetColor(255, 0, 0), "?の位%d", oncePlaceC);
 
 }
 

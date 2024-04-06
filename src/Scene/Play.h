@@ -7,7 +7,7 @@ private:
 	int BackGround[2];
 	int Tuta[2];
 	int BG_PosY[2];//”wŒi‰æ‘œ‚ÌˆÚ“®—p•Ï”
-
+	int Tuta_PosY[2];//‚Â‚½‰æ‘œ‚ÌˆÚ“®—p•Ï”
 	Timer timer;
 
 public:
@@ -27,3 +27,4 @@ public:
 	//I—¹ˆ—
 	void Fin();
 };
+void Character_Hit_Coin();
