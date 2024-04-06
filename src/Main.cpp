@@ -10,7 +10,7 @@
 //#include"src/Character.h"
 //#include"src/input.h"
 
-
+int g_CurrentSceneID = SCENE_ID_INIT_PLAY;
 // Win32アプリケーションは WinMain関数 から始まる
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
@@ -23,7 +23,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	}
 
 	// 画面サイズを変更
-	SetGraphMode( WINDOW_WIDTH, WINDOW_HEIGHT ,32);
+	SetGraphMode(WINDOW_WIDTH, WINDOW_HEIGHT ,32);
 
 	//描画するスクリーンを設定する
 	SetDrawScreen(DX_SCREEN_BACK);
@@ -69,7 +69,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			CoinBullet();				//コインの発射処理
 			coinMove();
 			CoinGravity();
-			Character_Hit_Coin();		//キャラクターとコインの当たり判定
+			//Character_Hit_Coin();		//キャラクターとコインの当たり判定
 			StepCharacterDraw();		//キャラクターの描画
 			DrawCoin();					//コインの描画
 			Drawparasol();				//パラソルの描画

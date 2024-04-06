@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 
 void InitInput();					//“ü—Í§Œä‰Šú‰»
 

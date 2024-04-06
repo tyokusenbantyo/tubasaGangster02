@@ -1,6 +1,7 @@
 #include "DxLib.h"
 #include "Scene.h"
 #include "Title.h"
+#include"../Input_struct/input.h"
 
 #define TITLE_BACKGROUND_PATH "data/01_TitleImage/title.png"
 
@@ -30,7 +31,7 @@ void SceneTitle::Step()
 	StepInput();
 
 	//スペースキーを押したら画面移動
- 	if (IsKeyPush(KEY_INPUT_SPACE))
+ 	if (IsKyePush(KEY_INPUT_SPACE))
 	{
 		g_CurrentSceneID = SCENE_ID_FIN_TITLE;
 	}
