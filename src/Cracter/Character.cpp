@@ -16,6 +16,7 @@ void InitCharacter()	//キャラクターの初期化
 		character[i].w = 100;
 		character[i].Gravity = 0;
 		character[i].handleUP = LoadGraph("data/02_Playimage/player_1.png");
+		character[i].Chararazian = 0.0f;
 	}
 }
 void StepCharacter()		//キャラクターの移動処理
@@ -25,10 +26,18 @@ void StepCharacter()		//キャラクターの移動処理
 		if (IsKeykeep(KEY_INPUT_A) == 1)
 		{
 			character[i].x -= CHARACTER_SPEED;
+			if (character[i].Chararazian > -0.8)
+			{
+				character[i].Chararazian -= 0.05;
+			}
 		}
 		if (IsKeykeep(KEY_INPUT_D) == 1)
 		{
 			character[i].x += CHARACTER_SPEED;
+			if (character[i].Chararazian < 0.5)
+			{
+				character[i].Chararazian += 0.05;
+			}
 		}
 		if (IsKyePush(KEY_INPUT_SPACE) == 1)
 		{
@@ -42,7 +51,6 @@ void StepCharacter()		//キャラクターの移動処理
 			}
 		}
 	}
-	
 }
 void StepCharacterDraw()		//キャラクターの描画
 {
@@ -51,7 +59,7 @@ void StepCharacterDraw()		//キャラクターの描画
 		DrawBox(character[i].x, character[i].y, character[i].x + character[i].w, character[i].y + character[i].h, GetColor(255, 255, 255), false);
 		/*if (character[i].parasol == true)*/
 		{
-			DrawRotaGraph(character[i].x + 48, character[i].y + 64, 1.0f, 0.0f, character[i].handleUP, true);
+			DrawRotaGraph(character[i].x + 48, character[i].y + 64, 1.0f, character[i].Chararazian, character[i].handleUP, true);
 		}
 		
 	}

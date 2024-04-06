@@ -2,7 +2,7 @@
 #define PARASOL_GAZOU	(4)		//パラソルの枚数
 struct Parasol
 {
-	int x, y, handle,parasolFramecount;
+	int x, y, handle,parasolOpenFramecount, parasolCloseFramecount;
 };
 void Initparasol();	//初期化
 void Stepparasol();	//パラソル情報を入れる

@@ -11,6 +11,7 @@ struct  Character
 		handleDown,			//
 		Gravity;		//重力
 	bool parasol;		
+	float Chararazian;
 	
 };
 void InitCharacter();		//キャラクターの初期化

@@ -10,7 +10,8 @@ void Initparasol()	//初期化
 	{
 		parasol[i].x = 0;
 		parasol[i].y = 0;
-		parasol[i].parasolFramecount = 0;
+		parasol[i].parasolOpenFramecount = 0;
+		parasol[i].parasolCloseFramecount = 0;
 	}
 	ParasolHandle[0] = LoadGraph("data/02_Playimage/parasol.png");
 	ParasolHandle[1] = LoadGraph("data/02_Playimage/parasol2.png");
@@ -28,34 +29,59 @@ void Stepparasol()	//キャラクターにパラソル情報を入れる
 }
 void Drawparasol()	//パラソルを描画
 {
-	
-
 	for (int i = 0; i < CHARACTER_PARASOL_MAX; i++)
 	{
-		DrawFormatString(0, 300, GetColor(255, 0, 0), "Parasol time%d", parasol[i].parasolFramecount);
+		DrawFormatString(0, 300, GetColor(255, 0, 0), "Parasol time%d", parasol[i].parasolOpenFramecount);
 		if (character[i].parasol == true)	//パラソルが開いてるか確認
 		{
 			//フレームカウントで画像を切り替える
-			if (parasol[i].parasolFramecount == 0)
+			if (parasol[i].parasolOpenFramecount == 0)
 			{
 				parasolchaeng = ParasolHandle[3];
 			}
-			if (parasol[i].parasolFramecount == 1)
+			if (parasol[i].parasolOpenFramecount == 1)
 			{
 				parasolchaeng = ParasolHandle[2];
 			}
-			if (parasol[i].parasolFramecount == 2)
+			if (parasol[i].parasolOpenFramecount == 2)
 			{
 				parasolchaeng = ParasolHandle[1];
 			}
-			if (parasol[i].parasolFramecount == 3)
+			if (parasol[i].parasolOpenFramecount == 3)
 			{
 				parasolchaeng = ParasolHandle[0];
 			}
-			if (parasol[i].parasolFramecount <3)
+			if (parasol[i].parasolOpenFramecount <3)
 			{
-				parasol[i].parasolFramecount++;
+				parasol[i].parasolOpenFramecount++;
 			}
+			parasol[i].parasolCloseFramecount = 0;
+			DrawRotaGraph(parasol[i].x, parasol[i].y, 1.0f, 0.0f, parasolchaeng, true);
+		}
+		if (character[i].parasol == false)	//パラソルが開いてるか確認
+		{
+			//フレームカウントで画像を切り替える
+			if (parasol[i].parasolCloseFramecount == 0)
+			{
+				parasolchaeng = ParasolHandle[0];
+			}
+			if (parasol[i].parasolCloseFramecount == 1)
+			{
+				parasolchaeng = ParasolHandle[1];
+			}
+			if (parasol[i].parasolCloseFramecount == 2)
+			{
+				parasolchaeng = ParasolHandle[2];
+			}
+			if (parasol[i].parasolCloseFramecount == 3)
+			{
+				parasolchaeng = ParasolHandle[3];
+			}
+			if (parasol[i].parasolCloseFramecount < 3)
+			{
+				parasol[i].parasolCloseFramecount++;
+			}
+			parasol[i].parasolOpenFramecount = 0;
 			DrawRotaGraph(parasol[i].x, parasol[i].y, 1.0f, 0.0f, parasolchaeng, true);
 		}
 	}

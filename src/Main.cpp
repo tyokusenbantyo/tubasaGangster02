@@ -65,7 +65,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			StepInput();				//キーの記憶
 			StepCharacter();			//キャラクターの移動
 			StepCharacterGravity();		//キャラクターの重力
-			Stepparasol();
+			Stepparasol();				//キャラとパラソルの位置を固定している
+			CoinBullet();				//コインの発射処理
+			coinMove();
+			CoinGravity();
 			Character_Hit_Coin();		//キャラクターとコインの当たり判定
 			StepCharacterDraw();		//キャラクターの描画
 			DrawCoin();					//コインの描画
