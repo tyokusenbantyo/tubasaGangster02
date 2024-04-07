@@ -1,5 +1,6 @@
 #pragma once
 #include "../Input/Input.h"
+#include "../Sound/sound.h"
 class SceneTitle
 {
 private:
@@ -10,6 +11,8 @@ public:
 
 	SceneTitle();
 	~SceneTitle();
+
+	Sound sound;
 
 	//‰Šú‰»
 	void Init();

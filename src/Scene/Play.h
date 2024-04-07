@@ -1,5 +1,6 @@
 #pragma once
 #include "../Timer/Timer.h"
+#include "../Sound/sound.h"
 class ScenePlay
 {
 private:
@@ -14,6 +15,8 @@ public:
 
 	ScenePlay();
 	~ScenePlay();
+
+	Sound sound;
 
 	//‰Šú‰»
 	void Init();

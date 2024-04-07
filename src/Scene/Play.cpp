@@ -41,6 +41,12 @@ void ScenePlay::Init()
 	Tuta_PosY[0] = 0;
 	Tuta_PosY[1] = 720;
 
+	//BGM
+	sound.bgm[BGM_PLAY] = LoadSoundMem("data/Sound/play.mp3");
+	PlaySoundMem(sound.bgm[BGM_PLAY], DX_PLAYTYPE_LOOP, true);
+
+	//SE
+	sound.InitPlay();
 
 	//制限時間
 	timer.Init();
@@ -147,10 +153,17 @@ void ScenePlay::Draw()
 // タイトル終了処理
 void ScenePlay::Fin()
 {
+	//BGMの削除
+	StopSoundMem(sound.bgm[BGM_PLAY]);
+	DeleteSoundMem(sound.bgm[BGM_PLAY]);
+	//SEの削除
+	for (int i = 0; i < ALL_SOUND; i++) {
+		StopSoundMem(sound.se[i]);
+		DeleteSoundMem(sound.se[i]);
+	}
 	// プレイシーンに移動
 	g_CurrentSceneID = SCENE_ID_INIT_RESULT;
 }
-
 
 void Character_Hit_Coin()
 {
@@ -163,6 +176,8 @@ void Character_Hit_Coin()
 			if (IsHitRect(character[i].x, character[i].y, character[i].w, character[i].h, coin[c].x, coin[c].y, coin[c].w, coin[c].h))
 			{
 				DrawFormatString(100, 240, GetColor(255, 0, 0), "ヒット");
+				//PlaySoundMem(sound.se[SE_HIT_COIN], DX_PLAYTYPE_BACK, true);
+
 				coin[c].IsUse = false;
 				if (coin[c].IsUse == false)
 				{

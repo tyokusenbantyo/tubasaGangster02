@@ -8,6 +8,7 @@
 SceneTitle::SceneTitle()
 {
 	BackGround = 0;		//画像の初期化
+	sound.bgm[BGM_OP] = 0;		//BGMの初期化
 }
 
 SceneTitle::~SceneTitle() {}
@@ -19,6 +20,12 @@ void SceneTitle::Init()
 	BackGround = LoadGraph(TITLE_BACKGROUND_PATH);
 	//キーの初期化
 	InitInput();
+
+	//BGM
+	sound.bgm[BGM_OP] = LoadSoundMem("data/Sound/title.mp3");//OP
+	PlaySoundMem(sound.bgm[BGM_OP], DX_PLAYTYPE_LOOP, true);
+
+
 	//通常処理へ移動
 	g_CurrentSceneID = SCENE_ID_LOOP_TITLE;
 
@@ -46,6 +53,10 @@ void SceneTitle::Draw()
 // タイトル終了処理
 void SceneTitle::Fin()
 {
+	//BGMの削除
+	StopSoundMem(sound.bgm[BGM_OP]);
+	DeleteSoundMem(sound.bgm[BGM_OP]);
+
 	// プレイシーンに移動
 	g_CurrentSceneID = SCENE_ID_INIT_PLAY;
 }

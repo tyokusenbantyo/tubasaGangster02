@@ -18,6 +18,10 @@ void SceneResult::Init()
 	BackGround = LoadGraph(TITLE_BACKGROUND_PATH);
 	//キーの初期化
 	InitInput();
+	//BGM
+	sound.bgm[BGM_ED] = LoadSoundMem("data/Sound/resulr.mp3");//OP
+	PlaySoundMem(sound.bgm[BGM_ED], DX_PLAYTYPE_LOOP, true);
+
 	//通常処理へ移動
 	g_CurrentSceneID = SCENE_ID_LOOP_RESULT;
 
@@ -44,6 +48,10 @@ void SceneResult::Draw()
 // 終了処理
 void SceneResult::Fin()
 {
+	//BGMの削除
+	StopSoundMem(sound.bgm[BGM_ED]);
+	DeleteSoundMem(sound.bgm[BGM_ED]);
+
 	//タイトル移動
 	g_CurrentSceneID = SCENE_ID_INIT_TITLE;
 }
