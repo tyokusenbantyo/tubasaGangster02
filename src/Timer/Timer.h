@@ -1,6 +1,6 @@
 #pragma once
-#define COUNT_NUMBER01	"data/Timer/111.png"
-#define COUNT_NUMBER10	"data/Timer/111.png"
+#define COUNT_NUMBER01	"data/Timer/02.png"
+#define COUNT_NUMBER10	"data/Timer/02.png"
 
 class Timer
 {

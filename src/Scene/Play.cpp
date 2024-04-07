@@ -6,7 +6,7 @@
 #include "../Item/Coin/Coin.h"
 #include "../Collision/Collision.h"
 
-#define PLAY_BACKGROUND_PATH "data/02_Playimage/kari_backGraund.png"
+#define PLAY_BACKGROUND_PATH "data/02_Playimage/Background.png"
 #define PLAY_TUTA_PATH "data/02_Playimage/tuta_1.png"
 
 int g_CurrentScenePlayID = ID_PLAY_REDITION;
