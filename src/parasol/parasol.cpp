@@ -1,6 +1,7 @@
 #include"DxLib.h"
 #include"parasol.h"
 #include"../Cracter/Character.h"
+#include"../Item/Coin/Coin.h"
 Parasol parasol[CHARACTER_PARASOL_MAX];
 int ParasolHandle[4];	//画像パスを入れる変数
 int parasolchaeng = 0;;	//パラソルを切り替える
@@ -31,7 +32,8 @@ void Drawparasol()	//パラソルを描画
 {
 	for (int i = 0; i < CHARACTER_PARASOL_MAX; i++)
 	{
-		DrawFormatString(0, 300, GetColor(255, 0, 0), "Parasol time%d", parasol[i].parasolOpenFramecount);
+		DrawFormatString(0, 300, GetColor(255, 0, 0), "Parasol time%d", parasol[i].parasolOpenFramecount); 
+
 		if (character[i].parasol == true)	//パラソルが開いてるか確認
 		{
 			//フレームカウントで画像を切り替える

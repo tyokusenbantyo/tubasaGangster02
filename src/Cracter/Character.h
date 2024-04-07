@@ -2,14 +2,15 @@
 #include "DxLib.h"
 #define CHARACTER_PARASOL_MAX	(1)				//プレイヤーの人数を決める
 struct  Character
-{
-	int x,				//横
-		y,				//縦
-		h,	
+{	
+	int x,					//横
+		y,					//縦
+		h,
 		w,
 		handleUP,			//画像ハンドル
 		handleDown,			//
-		Gravity;		//重力
+		Gravity;			//重力
+		
 	bool parasol;		
 	float Chararazian;
 	

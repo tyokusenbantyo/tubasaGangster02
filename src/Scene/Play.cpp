@@ -1,6 +1,7 @@
 #include "DxLib.h"
 #include "Scene.h"
-#include "Play.h"
+//#include "Play.h"
+#include"Play.h"
 
 #include "../Cracter/Character.h"
 #include "../Item/Coin/Coin.h"
@@ -167,22 +168,61 @@ void ScenePlay::Fin()
 
 void Character_Hit_Coin()
 {
-	for (int i = 0; i < CHARACTER_PARASOL_MAX; i++)
+	for (int c = 0; c < COIN_MAX; c++)
 	{
-		if (coin[i].IsUse == false)
+		if (coin[c].IsUse == false)
 			continue;
-		for (int c = 0; c < COIN_MAX; c++)
+		for (int i = 0; i < CHARACTER_PARASOL_MAX; i++)
 		{
-			if (IsHitRect(character[i].x, character[i].y, character[i].w, character[i].h, coin[c].x, coin[c].y, coin[c].w, coin[c].h))
+	   		if (IsHitRect(character[i].x, character[i].y, character[i].w, character[i].h, coin[c].x, coin[c].y, coin[c].w, coin[c].h))
 			{
 				DrawFormatString(100, 240, GetColor(255, 0, 0), "ƒqƒbƒg");
 				//PlaySoundMem(sound.se[SE_HIT_COIN], DX_PLAYTYPE_BACK, true);
 
-				coin[c].IsUse = false;
+ 				coin[c].IsUse = false;
 				if (coin[c].IsUse == false)
 				{
-					coin[i].x = 1220;
-					coin[i].y = 0;
+					if (c == 0)
+					{
+						coin[c].x = 1100;
+						coin[c].y = 20;
+					}
+					if (c == 1)
+					{
+						coin[c].x = 1100;
+						coin[c].y = 200;
+					}
+					if (c == 2)
+					{
+						coin[c].x = 1100;
+						coin[c].y = 250;
+					}
+					if (c == 3)
+					{
+						coin[c].x = 1100;
+						coin[c].y = 200;
+					}
+					if (c == 4)
+					{
+						coin[c].x = 100;
+						coin[c].y = 0;
+					}
+					if (c == 5)
+					{
+						coin[c].x = 100;
+						coin[c].y = 200;
+					}
+					if (c == 6)
+					{
+						coin[c].x = 100;
+						coin[c].y = 200;
+					}
+					if (c == 7)
+					{
+						coin[c].x = 100;
+						coin[c].y = 20;
+					}
+
 				}
 			}
 		}

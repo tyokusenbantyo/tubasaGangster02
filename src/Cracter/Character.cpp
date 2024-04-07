@@ -10,7 +10,7 @@ void InitCharacter()	//キャラクターの初期化
 {
 	for (int i = 0; i < CHARACTER_PARASOL_MAX; i++)
 	{
-		character[i].x = 0;
+		character[i].x = 290;
 		character[i].y = 50;
 		character[i].h = 128;
 		character[i].w = 100;
@@ -23,9 +23,14 @@ void StepCharacter()		//キャラクターの移動処理
 {
 	for (int i = 0; i < CHARACTER_PARASOL_MAX; i++)
 	{
+
 		if (IsKeykeep(KEY_INPUT_A) == 1)
 		{
 			character[i].x -= CHARACTER_SPEED;
+			if (character[i].x <= 280)
+			{
+				character[i].x += CHARACTER_SPEED;
+			}
 			if (character[i].Chararazian > -0.8)
 			{
 				character[i].Chararazian -= 0.05;
@@ -34,6 +39,10 @@ void StepCharacter()		//キャラクターの移動処理
 		if (IsKeykeep(KEY_INPUT_D) == 1)
 		{
 			character[i].x += CHARACTER_SPEED;
+			if (character[i].x >= 920)
+			{
+				character[i].x -= CHARACTER_SPEED;
+			}
 			if (character[i].Chararazian < 0.5)
 			{
 				character[i].Chararazian += 0.05;
