@@ -2,7 +2,7 @@
 #include "Scene.h"
 #include "Result.h"
 
-#define TITLE_BACKGROUND_PATH "data/03_ClearImage/result.png"
+#define TITLE_BACKGROUND_PATH "data/03_ClearImage/result_1.png"
 
 SceneResult::SceneResult()
 {
