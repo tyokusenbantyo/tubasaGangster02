@@ -144,10 +144,13 @@
     <ClCompile Include="src\FPS\FPS.cpp" />
     <ClCompile Include="src\Input\Input.cpp" />
     <ClCompile Include="src\Item\Coin\Coin.cpp" />
+    <ClCompile Include="src\Item\hammer\hammer.cpp" />
     <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\parasol\parasol.cpp" />
     <ClCompile Include="src\Scene\Play.cpp" />
     <ClCompile Include="src\Scene\Result.cpp" />
     <ClCompile Include="src\Scene\TItle.cpp" />
+    <ClCompile Include="src\Sound\sound.cpp" />
     <ClCompile Include="src\Timer\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -156,10 +159,13 @@
     <ClInclude Include="src\FPS\FPS.h" />
     <ClInclude Include="src\Input\Input.h" />
     <ClInclude Include="src\Item\Coin\Coin.h" />
-    <ClInclude Include="src\Play\Play.h" />
+    <ClInclude Include="src\Item\hammer\hammer.h" />
+    <ClInclude Include="src\parasol\parasol.h" />
+    <ClInclude Include="src\Scene\Play.h" />
     <ClInclude Include="src\Scene\Result.h" />
     <ClInclude Include="src\Scene\Scene.h" />
     <ClInclude Include="src\Scene\Title.h" />
+    <ClInclude Include="src\Sound\sound.h" />
     <ClInclude Include="src\Timer\Timer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

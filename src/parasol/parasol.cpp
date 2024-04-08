@@ -14,11 +14,15 @@ void Initparasol()	//初期化
 		parasol[i].parasolOpenFramecount = 0;
 		parasol[i].parasolCloseFramecount = 0;
 	}
-	ParasolHandle[0] = LoadGraph("data/02_Playimage/parasol.png");
-	ParasolHandle[1] = LoadGraph("data/02_Playimage/parasol2.png");
-	ParasolHandle[2] = LoadGraph("data/02_Playimage/parasol3.png");
-	ParasolHandle[3] = LoadGraph("data/02_Playimage/parasol4.png");
+	//ParasolHandle[0] = LoadGraph("data/02_Playimage/parasol.png");
+	//ParasolHandle[1] = LoadGraph("data/02_Playimage/parasol2.png");
+	//ParasolHandle[2] = LoadGraph("data/02_Playimage/parasol3.png");
+	//ParasolHandle[3] = LoadGraph("data/02_Playimage/parasol4.png");
 	
+	ParasolHandle[0] = LoadGraph("data/02_Playimage/PPT1.png");
+	ParasolHandle[1] = LoadGraph("data/02_Playimage/PPT2.png");
+	ParasolHandle[2] = LoadGraph("data/02_Playimage/PPT3.png");
+	ParasolHandle[3] = LoadGraph("data/02_Playimage/PPT4.png");
 }
 void Stepparasol()	//キャラクターにパラソル情報を入れる
 {
@@ -84,7 +88,7 @@ void Drawparasol()	//パラソルを描画
 				parasol[i].parasolCloseFramecount++;
 			}
 			parasol[i].parasolOpenFramecount = 0;
-			DrawRotaGraph(parasol[i].x, parasol[i].y, 1.0f, 0.0f, parasolchaeng, true);
+			DrawRotaGraph(parasol[i].x , parasol[i].y, 1.0f, 0.0f, parasolchaeng, true);
 		}
 	}
 }

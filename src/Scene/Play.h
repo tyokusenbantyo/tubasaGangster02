@@ -31,3 +31,4 @@ public:
 	void Fin();
 };
 void Character_Hit_Coin();
+void Character_Hit_Hummer();

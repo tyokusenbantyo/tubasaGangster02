@@ -9,9 +9,12 @@ struct  Character
 		w,
 		handleUP,			//画像ハンドル
 		handleDown,			//
-		Gravity;			//重力
+		Gravity,			//重力
+		parasolCloseFramecount,
+		parasolOpenFramecount;
 		
-	bool parasol;		
+	bool parasol;
+	
 	float Chararazian;
 	
 };

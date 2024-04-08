@@ -2,6 +2,7 @@
 #include "Scene.h"
 //#include "Play.h"
 #include"Play.h"
+#include"../Item/hammer/hammer.h"
 
 #include "../Cracter/Character.h"
 #include "../Item/Coin/Coin.h"
@@ -176,7 +177,7 @@ void Character_Hit_Coin()
 		{
 	   		if (IsHitRect(character[i].x, character[i].y, character[i].w, character[i].h, coin[c].x, coin[c].y, coin[c].w, coin[c].h))
 			{
-				DrawFormatString(100, 240, GetColor(255, 0, 0), "ヒット");
+				DrawFormatString(100, 240, GetColor(255, 0, 0), "コインヒット");
 				//PlaySoundMem(sound.se[SE_HIT_COIN], DX_PLAYTYPE_BACK, true);
 
  				coin[c].IsUse = false;
@@ -224,6 +225,45 @@ void Character_Hit_Coin()
 					}
 
 				}
+			}
+		}
+	}
+}
+void Character_Hit_Hummer()
+{
+	for (int h = 0; h < HUMMER_MAX; h++)
+	{
+		for (int i = 0; i < CHARACTER_PARASOL_MAX; i++)
+		{
+			if (IsHitRect(character[i].x, character[i].y, character[i].w, character[i].h, hummer[h].x, hummer[h].y, hummer[h].w, hummer[h].h))
+			{
+				DrawFormatString(100, 240, GetColor(255, 0, 0), "ハンマーヒット");
+				hummer[h].IsUse = false;
+				if (h == 0 || h == 1)
+				{
+					hummer[h].x = 1100;
+				}
+				if (h == 2 || h == 3)
+				{
+					hummer[h].x = 100;
+				}
+
+				hummer[h].IsUse = false;
+				hummer[h].y = 400;
+				hummer[h].GravitySpeed = 0;
+				hummer[h].oneJunp = true;
+				hummer[h].otosu = true;
+			}
+			
+			if (hummer[h].otosu == true)
+			{
+				hummer[h].otosuFramecount++;
+				if (hummer[h].otosuFramecount == 25)
+				{
+					hummer[h].otosuFramecount = 0;
+					hummer[h].otosu = false;
+				}
+				
 			}
 		}
 	}

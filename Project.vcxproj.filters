@@ -19,14 +19,8 @@
     <Filter Include="ソース ファイル\Collision">
       <UniqueIdentifier>{a35fbee7-25d8-43c4-b292-2c4c6e5c59f1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\FPS">
-      <UniqueIdentifier>{2c37571d-aeb7-4597-a0df-5a5fdef621b4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Scene">
-      <UniqueIdentifier>{b350c5ab-85b6-4418-99cb-b7d73ce851c1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Timer">
-      <UniqueIdentifier>{1b89af0f-101a-4ff0-b299-cb696554d386}</UniqueIdentifier>
+    <Filter Include="ソース ファイル\hukui">
+      <UniqueIdentifier>{9db8e7fd-f2e4-4878-83f5-a4f0464f0b10}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -36,25 +30,37 @@
     <ClCompile Include="src\Collision\Collision.cpp">
       <Filter>ソース ファイル\Collision</Filter>
     </ClCompile>
-    <ClCompile Include="src\FPS\FPS.cpp">
-      <Filter>ソース ファイル\FPS</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Scene\TItle.cpp">
-      <Filter>ソース ファイル\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Timer\Timer.cpp">
-      <Filter>ソース ファイル\Timer</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Scene\Result.cpp">
-      <Filter>ソース ファイル\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="src\Main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="src\Cracter\Character.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="src\Item\Coin\Coin.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\parasol\parasol.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Timer\Timer.cpp">
+      <Filter>ソース ファイル\hukui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sound\sound.cpp">
+      <Filter>ソース ファイル\hukui</Filter>
+    </ClCompile>
     <ClCompile Include="src\Scene\Play.cpp">
+      <Filter>ソース ファイル\hukui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\Result.cpp">
+      <Filter>ソース ファイル\hukui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\TItle.cpp">
+      <Filter>ソース ファイル\hukui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FPS\FPS.cpp">
+      <Filter>ソース ファイル\hukui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Item\hammer\hammer.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -62,25 +68,40 @@
     <ClInclude Include="src\Collision\Collision.h">
       <Filter>ソース ファイル\Collision</Filter>
     </ClInclude>
-    <ClInclude Include="src\FPS\FPS.h">
-      <Filter>ソース ファイル\FPS</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Scene\Scene.h">
-      <Filter>ソース ファイル\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Scene\Title.h">
-      <Filter>ソース ファイル\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Timer\Timer.h">
-      <Filter>ソース ファイル\Timer</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Scene\Result.h">
-      <Filter>ソース ファイル\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="src\Input\Input.h">
       <Filter>ソース ファイル\Input</Filter>
     </ClInclude>
     <ClInclude Include="src\Cracter\Character.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="src\parasol\parasol.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Item\Coin\Coin.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Timer\Timer.h">
+      <Filter>ソース ファイル\hukui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sound\sound.h">
+      <Filter>ソース ファイル\hukui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\Play.h">
+      <Filter>ソース ファイル\hukui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\Result.h">
+      <Filter>ソース ファイル\hukui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\Scene.h">
+      <Filter>ソース ファイル\hukui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\Title.h">
+      <Filter>ソース ファイル\hukui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FPS\FPS.h">
+      <Filter>ソース ファイル\hukui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Item\hammer\hammer.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
   </ItemGroup>

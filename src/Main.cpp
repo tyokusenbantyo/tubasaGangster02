@@ -10,6 +10,7 @@
 #include"../src/Play/Play.h"
 #include"Scene/Play.h"
 #include"Scene/Result.h"
+#include"../src/Item/hammer/hammer.h"
 //#include"src/Character.h"
 //#include"src/input.h"
 
@@ -77,6 +78,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		case SCENE_ID_INIT_PLAY:
 		{
 			InitInput();		//入力の初期化
+			InitHummer();
 			InitCharacter();	//キャラクターの初期化
 			InitCoin();			//コインの初期化
 			Initparasol();		//パラソルの初期化
@@ -92,17 +94,23 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			StepInput();				//キーの記憶
 			StepCharacter();			//キャラクターの移動
 			StepCharacterGravity();		//キャラクターの重力
-			Stepparasol();				//キャラとパラソルの位置を固定している
+			//Stepparasol();			//キャラとパラソルの位置を固定している
 			CoinBullet();				//コインの発射処理
 			Coininterval();				//コインの発射感覚
 			coinMove();
 			CoinGravity();
+			HummerGravity();	//コインの重力
+			HummerMove();	//コインの移動処理
+			HummerBullet();	//コインの発射処理
+			Hummerinterval();//コインの発射感覚
 			Character_Hit_Coin();		//キャラクターとコインの当たり判定
+			Character_Hit_Hummer();
 			//描画
 			play.Draw();				//背景の描画
+			DrawHummer();	//コインの描画
 			StepCharacterDraw();		//キャラクターの描画
 			DrawCoin();					//コインの描画
-			Drawparasol();				//パラソルの描画
+			//Drawparasol();				//パラソルの描画
 
 		}
 		break;
