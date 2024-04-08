@@ -3,7 +3,7 @@
 #include "Title.h"
 #include"../Input_struct/input.h"
 
-#define TITLE_BACKGROUND_PATH "data/01_TitleImage/title_mozinasi.png"
+#define TITLE_BACKGROUND_PATH "data/01_TitleImage/title.png"
 
 SceneTitle::SceneTitle()
 {
