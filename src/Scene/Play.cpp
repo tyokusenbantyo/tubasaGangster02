@@ -46,6 +46,8 @@ void ScenePlay::Init()
 
 	//BGM
 	sound.bgm[BGM_PLAY] = LoadSoundMem("data/Sound/play.mp3");
+	//音量調整
+	ChangeVolumeSoundMem(255 * 50 / 100, sound.bgm[BGM_PLAY]);
 	PlaySoundMem(sound.bgm[BGM_PLAY], DX_PLAYTYPE_LOOP, true);
 
 	//SE
@@ -94,8 +96,13 @@ void ScenePlay::Step()
 		//画面遷移
 		if (alphaNum <= 0) {
 			alphaNum = 0;
+			//se
+			PlaySoundMem(sound.se[SE_WIND], DX_PLAYTYPE_LOOP, true);
+
 			g_CurrentScenePlayID = ID_PLAY_NOW;
 		}
+
+
 		//g_CurrentScenePlayID = ID_PLAY_NOW;
 		break;
 
@@ -119,6 +126,24 @@ void ScenePlay::Step()
 		}
 		//スコア
 		score.Step();
+
+		//鳴き声
+		if (timer.oncePlace == 4) {
+			ChangeVolumeSoundMem(255 * 10 / 100, sound.se[SE_WIND]);
+			PlaySoundMem(sound.se[SE_WIND], DX_PLAYTYPE_LOOP, true);
+		}
+		if (timer.tensPlace == 0 && timer.oncePlace == 8) {
+			ChangeVolumeSoundMem(255 * 10 / 100, sound.se[SE_WIND1]);
+			PlaySoundMem(sound.se[SE_WIND1], DX_PLAYTYPE_LOOP, true);
+		}
+		if (timer.tensPlace == 2 && timer.oncePlace == 0) {
+			ChangeVolumeSoundMem(255 * 30 / 100, sound.se[SE_BIRD]);
+			PlaySoundMem(sound.se[SE_BIRD], DX_PLAYTYPE_LOOP, true);
+		}
+		if (timer.tensPlace == 1 && timer.oncePlace == 2) {
+			ChangeVolumeSoundMem(255 * 30 / 100, sound.se[SE_BIRD1]);
+			PlaySoundMem(sound.se[SE_BIRD1], DX_PLAYTYPE_LOOP, true);
+		}
 
 		//制限時間
 		timer.CountDown();
@@ -311,6 +336,8 @@ void ScenePlay::Character_Hit_Hummer()
 			if (IsHitRect(character[i].x, character[i].y, character[i].w, character[i].h, hummer[h].x, hummer[h].y, hummer[h].w, hummer[h].h))
 			{
 				//DrawFormatString(100, 240, GetColor(255, 0, 0), "ハンマーヒット");
+				PlaySoundMem(sound.se[SE_DAMEGE], DX_PLAYTYPE_BACK, true);
+
 				hummer[h].IsUse = false;
 				if (h == 0 || h == 1)
 				{

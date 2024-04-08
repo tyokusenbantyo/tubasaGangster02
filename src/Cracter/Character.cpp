@@ -2,6 +2,7 @@
 #include"Character.h"
 #include"../Input_struct/input.h"
 #include"../Item/hammer/hammer.h"
+#include "../Sound/sound.h"
 #define CHARACTER_SPEED	(5)				//キャラクターのスピード
 #define CHARACTERGRAVITY	(1)			//キャラクターの重力
 #define CHARACTERLIMITGRAVITYDOWN	(8)	//パラソルがない時の重力リミット
@@ -9,6 +10,7 @@
 int Character_Path[4];
 int Character_cheng=LoadGraph("data/02_Playimage/PPT4.png");
 
+Sound sound;
 Character character[1];
 void InitCharacter()	//キャラクターの初期化
 {
@@ -71,6 +73,8 @@ void StepCharacter()		//キャラクターの移動処理
 							if (character[i].parasol == false)
 							{
 								character[i].parasol = true;
+								//se
+								PlaySoundMem(sound.se[SE_OPEN_PARASOL], DX_PLAYTYPE_LOOP, true);
 							}
 							else if (character[i].parasol == true)
 							{

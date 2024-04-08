@@ -7,6 +7,11 @@ enum SE
 	SE_HIT_HAMMER,
 	SE_OPEN_PARASOL,
 	SE_CLOSE_PARASOL,
+	SE_BIRD,
+	SE_BIRD1,
+	SE_WIND,
+	SE_WIND1,
+
 	ALL_SOUND,
 };
 
@@ -34,30 +39,3 @@ public:
 };
 
 
-/*
-・コインにあたった
-・ハンマーにあ立った
-・スペースキーを押した（画面遷移）
-・パラソルを開いたラ　ふわふわ
-・パラソルを閉じた　　ひゅーー
-・時間切れ　　　　　　ぴぴー！
-
-・タイトル画面BGM
-・結果画面BGM
-・遊び中BGM
-
-
-	se[SE_ENTER] = LoadSoundMem("data/Sound/SE_enter.mp3");		//決定ボタン
-	se[SE_DAMEGE] = LoadSoundMem("data/Sound/SE_enter.mp3");	//ダメージを受けたとき
-	se[SE_HIT_COIN] = LoadSoundMem("data/Sound/SE_enter.mp3");	//コインにあったとき
-	se[SE_HIT_HAMMER] = LoadSoundMem("data/Sound/SE_enter.mp3");	//コインにあったとき
-	se[SE_OPEN_PARASOL] = LoadSoundMem("data/Sound/SE_enter.mp3");	//コインにあったとき
-	se[SE_CLOSE_PARASOL] = LoadSoundMem("data/Sound/SE_enter.mp3");	//コインにあったとき
-
-	bgm[BGM_OP] = LoadSoundMem("data/Sound/BGM_Winter.mp3");//冬
-	bgm[BGM_PLAY] = LoadSoundMem("data/Sound/BGM_Winter.mp3");//冬
-	bgm[BGM_ED] = LoadSoundMem("data/Sound/BGM_Winter.mp3");//冬
-
-
-
-*/
