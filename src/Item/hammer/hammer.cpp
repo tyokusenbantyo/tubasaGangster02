@@ -145,19 +145,19 @@ void DrawHummer()
 {
 	for (int i = 0; i < HUMMER_MAX; i++)
 	{
-		DrawBox(hummer[i].x, hummer[i].y, hummer[i].x + hummer[i].w, hummer[i].y + hummer[i].h, GetColor(255, 255, 255), false);
+		//DrawBox(hummer[i].x, hummer[i].y, hummer[i].x + hummer[i].w, hummer[i].y + hummer[i].h, GetColor(255, 255, 255), false);
 		
 		if (hummer[i].IsUse == true)
 		{
 			DrawRotaGraph(hummer[i].x + 32, hummer[i].y + 32, 1.0f, hummer[i].razian, hummer[i].handlePath, true);
 			hummer[i].razian+=0.1;
 		}
-		DrawFormatString(0, 400, GetColor(255, 0, 0), "hummer[i].bulletinterval =%d", hummer[i].bulletFrameCount);
+		//DrawFormatString(0, 400, GetColor(255, 0, 0), "hummer[i].bulletinterval =%d", hummer[i].bulletFrameCount);
 		//DrawFormatString(0, 420, GetColor(255, 0, 0), "hummer[i].x =%d", hummer[0].x);
 		//DrawFormatString(0, 440, GetColor(255, 0, 0), "hummer[i].y =%d", hummer[0].y);
 		//DrawFormatString(0, 460, GetColor(255, 0, 0), "hummer[i].x =%d", hummer[1].x);
 		//DrawFormatString(0, 480, GetColor(255, 0, 0), "hummer[i].y =%d", hummer[1].y);
-		DrawFormatString(100, 260, GetColor(255, 0, 0), "hummer[h].otosuFramecount=  %d", hummer[i].otosuFramecount);
+		//DrawFormatString(100, 260, GetColor(255, 0, 0), "hummer[h].otosuFramecount=  %d", hummer[i].otosuFramecount);
 
 	}
 }

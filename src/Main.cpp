@@ -84,6 +84,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			Initparasol();		//パラソルの初期化
 
 			play.Init();
+
 			g_CurrentSceneID = SCENE_ID_LOOP_PLAY;
 		}
 		break;
@@ -91,27 +92,31 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		case SCENE_ID_LOOP_PLAY:
 		{
 			play.Step();
-			StepInput();				//キーの記憶
-			StepCharacter();			//キャラクターの移動
-			StepCharacterGravity();		//キャラクターの重力
-			//Stepparasol();			//キャラとパラソルの位置を固定している
-			CoinBullet();				//コインの発射処理
-			Coininterval();				//コインの発射感覚
-			coinMove();
-			CoinGravity();
-			HummerGravity();	//コインの重力
-			HummerMove();	//コインの移動処理
-			HummerBullet();	//コインの発射処理
-			Hummerinterval();//コインの発射感覚
-			Character_Hit_Coin();		//キャラクターとコインの当たり判定
-			Character_Hit_Hummer();
+			if (g_CurrentScenePlayID == ID_PLAY_NOW) {
+				StepInput();				//キーの記憶
+				StepCharacter();			//キャラクターの移動
+				StepCharacterGravity();		//キャラクターの重力
+				//Stepparasol();			//キャラとパラソルの位置を固定している
+				CoinBullet();				//コインの発射処理
+				Coininterval();				//コインの発射感覚
+				coinMove();
+				CoinGravity();
+				HummerGravity();	//コインの重力
+				HummerMove();	//コインの移動処理
+				HummerBullet();	//コインの発射処理
+				Hummerinterval();//コインの発射感覚
+				play.Character_Hit_Coin();		//キャラクターとコインの当たり判定
+				play.Character_Hit_Hummer();
+			}
+
 			//描画
 			play.Draw();				//背景の描画
-			DrawHummer();	//コインの描画
-			StepCharacterDraw();		//キャラクターの描画
-			DrawCoin();					//コインの描画
-			//Drawparasol();				//パラソルの描画
-
+			if (g_CurrentScenePlayID == ID_PLAY_NOW) {
+				DrawHummer();	//コインの描画
+				StepCharacterDraw();		//キャラクターの描画
+				DrawCoin();					//コインの描画
+				//Drawparasol();				//パラソルの描画
+			}
 		}
 		break;
 

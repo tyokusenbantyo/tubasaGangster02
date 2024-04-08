@@ -1,6 +1,6 @@
 #pragma once
-#define COUNT_NUMBER01	"data/Timer/02.png"
-#define COUNT_NUMBER10	"data/Timer/02.png"
+#define COUNT_NUMBER01	"data/Timer/drak.png"
+#define COUNT_NUMBER10	"data/Timer/drak.png"
 
 class Timer
 {
@@ -17,11 +17,9 @@ public:
 	int oncePlaceC;		//一の位用のカウント変数
 	int timePosX,timePosY;			//座標
 
-	Timer();
+	int back;			//下地
 
-	//void startCt();	//始まる前のカウントダウン
-	//void LoadSTCD();
-	//void finSTCD();
+	Timer();
 
 	void Init();
 	void Load();

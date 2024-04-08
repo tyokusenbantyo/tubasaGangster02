@@ -14,7 +14,7 @@ void InitCharacter()	//キャラクターの初期化
 {
 	for (int i = 0; i < CHARACTER_PARASOL_MAX; i++)
 	{
-		character[i].x = 290;
+		character[i].x = 640;
 		character[i].y = 50;
 		character[i].h = 128;
 		character[i].w = 100;
@@ -107,7 +107,7 @@ void StepCharacterDraw()		//キャラクターの描画
 {
 	for (int i = 0; i < CHARACTER_PARASOL_MAX; i++)
 	{
-		DrawBox(character[i].x, character[i].y, character[i].x + character[i].w, character[i].y + character[i].h, GetColor(255, 255, 255), false);
+		//DrawBox(character[i].x, character[i].y, character[i].x + character[i].w, character[i].y + character[i].h, GetColor(255, 255, 255), false);
 		if (character[i].parasol == true)	//パラソルが開いてるか確認
 		{
 			//フレームカウントで画像を切り替える

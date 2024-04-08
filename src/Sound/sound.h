@@ -28,11 +28,8 @@ public:
 	 bool istouch[2];
 	 bool isSound[ALL_SOUND];
 
-	 void InitTitle();		//全体の初期化
 	 void InitPlay();	//playシーン専用の初期化
-	 void InitResult();	//playシーン専用の初期化
 	 void PlayMusic();	//playシーン専用の再生関数
-	 void PlaySE();		//playシーン専用のアイテムSE
 	 void Fin();
 };
 

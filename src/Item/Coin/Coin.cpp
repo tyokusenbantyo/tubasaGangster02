@@ -153,7 +153,7 @@ void DrawCoin()
 {
 	for (int i = 0; i < COIN_MAX; i++)
 	{
-		DrawBox(coin[i].x, coin[i].y, coin[i].x + coin[i].w, coin[i].y + coin[i].h, GetColor(255, 255, 255), false);
+		//DrawBox(coin[i].x, coin[i].y, coin[i].x + coin[i].w, coin[i].y + coin[i].h, GetColor(255, 255, 255), false);
 		if (coin[i].DrawFrameCount == 0)
 		{
 			coin[i].handlePath = CoinPath1;
@@ -176,11 +176,11 @@ void DrawCoin()
 		{
 			DrawRotaGraph(coin[i].x + 32, coin[i].y + 32, 1.0f, 0.0f, coin[i].handlePath, true);
 		}
-		DrawFormatString(0, 400, GetColor(255, 0, 0), "coin[i].bulletinterval =%d", coin[i].bulletFrameCount);
-		DrawFormatString(0, 420, GetColor(255, 0, 0), "coin[i].x =%d", coin[0].x);
-		DrawFormatString(0, 440, GetColor(255, 0, 0), "coin[i].y =%d", coin[0].y);
-		DrawFormatString(0, 460, GetColor(255, 0, 0), "coin[i].x =%d", coin[1].x);
-		DrawFormatString(0, 480, GetColor(255, 0, 0), "coin[i].y =%d", coin[1].y);
+		//DrawFormatString(0, 400, GetColor(255, 0, 0), "coin[i].bulletinterval =%d", coin[i].bulletFrameCount);
+		//DrawFormatString(0, 420, GetColor(255, 0, 0), "coin[i].x =%d", coin[0].x);
+		//DrawFormatString(0, 440, GetColor(255, 0, 0), "coin[i].y =%d", coin[0].y);
+		//DrawFormatString(0, 460, GetColor(255, 0, 0), "coin[i].x =%d", coin[1].x);
+		//DrawFormatString(0, 480, GetColor(255, 0, 0), "coin[i].y =%d", coin[1].y);
 	}
 }
 void CoinGravity()

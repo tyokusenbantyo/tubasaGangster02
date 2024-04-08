@@ -36,7 +36,7 @@ void Drawparasol()	//パラソルを描画
 {
 	for (int i = 0; i < CHARACTER_PARASOL_MAX; i++)
 	{
-		DrawFormatString(0, 300, GetColor(255, 0, 0), "Parasol time%d", parasol[i].parasolOpenFramecount); 
+		//DrawFormatString(0, 300, GetColor(255, 0, 0), "Parasol time%d", parasol[i].parasolOpenFramecount); 
 
 		if (character[i].parasol == true)	//パラソルが開いてるか確認
 		{

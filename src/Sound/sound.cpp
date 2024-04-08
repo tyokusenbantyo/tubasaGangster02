@@ -26,30 +26,8 @@ void Sound::PlayMusic()
 	//ChangeVolumeSoundMem(255 * 50 / 100, bgm[B_FALL]);
 	//ChangeVolumeSoundMem(255 * 50 / 100, bgm[B_WINTER]);
 
-	//çƒê∂É{É^Éì
-	/*if (g_CurrentSceneID == SW_STAGE0) {
-		PlaySoundMem(bgm[B_SPRING], DX_PLAYTYPE_LOOP, true);
-	}
-	else if (g_CurrentSceneID == SW_STAGE1) {
-		PlaySoundMem(bgm[B_SUMMER], DX_PLAYTYPE_LOOP, true);
-	}
-	else if (g_CurrentSceneID == SW_STAGE2) {
-		PlaySoundMem(bgm[B_FALL], DX_PLAYTYPE_LOOP, true);
-	}*/
-	
 }
 
-void Sound::PlaySE()
-{
-	/*if (istouch[0]) {
-		PlaySoundMem(se[SE_ITEM], DX_PLAYTYPE_BACK, true);
-		istouch[0] = false;
-	}
-	if (istouch[1]) {
-		PlaySoundMem(se[SE_ITEM1], DX_PLAYTYPE_BACK, true);
-		istouch[1] = false;
-	}*/
-}
 
 void Sound::Fin()
 {

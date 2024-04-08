@@ -8,6 +8,7 @@
 #include "../Item/Coin/Coin.h"
 #include "../Collision/Collision.h"
 
+
 #define PLAY_BACKGROUND_PATH "data/02_Playimage/Background.png"
 #define PLAY_TUTA_PATH "data/02_Playimage/tuta_1.png"
 
@@ -54,8 +55,23 @@ void ScenePlay::Init()
 	timer.Init();
 	timer.Load();
 
+	//スコア初期化
+	score.Init();
+	score.Load();
+
+	//装飾
+	decretion[0] = LoadGraph("data/02_Playimage/start.png");
+	dec_posX[0] = 280;
+	dec_posY[0] = 0;
+
+	decretion[1] = LoadGraph("data/02_Playimage/finish.png");
+	dec_posX[1] = 240;
+	dec_posY[1] = 0;
+
+	alphaNum = 255;
+
 	//通常処理へ移動
-	//g_CurrentSceneID = SCENE_ID_LOOP_PLAY;
+	g_CurrentSceneID = SCENE_ID_LOOP_PLAY;
 	//playの中の処理移動
 	g_CurrentScenePlayID = ID_PLAY_REDITION;
 }
@@ -63,56 +79,75 @@ void ScenePlay::Init()
 // タイトル通常処理
 void ScenePlay::Step()
 {
-	//switch (g_CurrentScenePlayID)
-	//{
-	//case ID_PLAY_REDITION:
-	//	g_CurrentScenePlayID = ID_PLAY_NOW;
-	//	break;
-	//case ID_PLAY_NOW:
-	//	BG_PosY[0]-=2;
-	//	BG_PosY[1]-=2;
-	//	if (BG_PosY[0] <= -720) {
-	//		BG_PosY[0] = 720;
-	//	}
-	//	if (BG_PosY[1] <= -720) {
-	//		BG_PosY[1] = 720;
-	//	}
-	//	//制限時間
-	//	timer.CountDown();
-	//	if (timer.tensPlace == 0 && timer.oncePlace == 0) {
-	//		g_CurrentScenePlayID = ID_PLAY_FINSH;
-	//	}
-	//	break;
-	//case ID_PLAY_FINSH:
-	//	g_CurrentSceneID = SCENE_ID_FIN_PLAY;
-	//	break;
-	//default:
-	//	break;
-	//}
-	BG_PosY[0] -= 1;
-	BG_PosY[1] -=1;
-	if (BG_PosY[0] <= -720) {
-		BG_PosY[0] = 720;
-	}
-	if (BG_PosY[1] <= -720) {
-		BG_PosY[1] = 720;
-	}
+	switch (g_CurrentScenePlayID)
+	{
+	case ID_PLAY_REDITION:
+		//降りてくる
+		if (dec_posY[0] < 259) {
+			dec_posY[0]+=5;
+		}
+		else {
+			dec_posY[0] = 260;
+			alphaNum -= 2;
+		}
 
-	Tuta_PosY[0] -= 3;
-	Tuta_PosY[1] -= 3;
-	if (Tuta_PosY[0] <= -720) {
-		Tuta_PosY[0] = 720;
-	}
-	if (Tuta_PosY[1] <= -720) {
-		Tuta_PosY[1] = 720;
-	}
+		//画面遷移
+		if (alphaNum <= 0) {
+			alphaNum = 0;
+			g_CurrentScenePlayID = ID_PLAY_NOW;
+		}
+		//g_CurrentScenePlayID = ID_PLAY_NOW;
+		break;
 
+	case ID_PLAY_NOW:
+		BG_PosY[0] -= 1;
+		BG_PosY[1] -= 1;
+		if (BG_PosY[0] <= -720) {
+			BG_PosY[0] = 720;
+		}
+		if (BG_PosY[1] <= -720) {
+			BG_PosY[1] = 720;
+		}
 
-	//制限時間
-	timer.CountDown();
-	if (timer.tensPlace == 0 && timer.oncePlace == 0) {
-		g_CurrentSceneID = SCENE_ID_FIN_PLAY;
+		Tuta_PosY[0] -= 3;
+		Tuta_PosY[1] -= 3;
+		if (Tuta_PosY[0] <= -720) {
+			Tuta_PosY[0] = 720;
+		}
+		if (Tuta_PosY[1] <= -720) {
+			Tuta_PosY[1] = 720;
+		}
+		//スコア
+		score.Step();
+
+		//制限時間
+		timer.CountDown();
+		if (timer.tensPlace == 0 && timer.oncePlace == 0) {
+			g_CurrentScenePlayID = ID_PLAY_FINSH;
+			alphaNum = 255;
+		}
+		break;
+	case ID_PLAY_FINSH:
+		//降りてくる
+		if (dec_posY[1] < 259) {
+			dec_posY[1] += 5;
+		}
+		else {
+			dec_posY[1] = 260;
+			alphaNum -= 2;
+		}
+
+		//画面遷移
+		if (alphaNum <= 0) {
+			alphaNum = 0;
+			g_CurrentSceneID = SCENE_ID_FIN_PLAY;
+
+		}
+		break;
+	default:
+		break;
 	}
+	
 }
 
 // タイトル描画処理
@@ -127,10 +162,25 @@ void ScenePlay::Draw()
 	DrawGraph(0, Tuta_PosY[1], Tuta[1], true);
 
 	timer.Draw();
+	score.Draw();
 
-	/*switch (g_CurrentScenePlayID)
+	switch (g_CurrentScenePlayID)
 	{
 	case ID_PLAY_REDITION:
+		if (dec_posY[0] < 259) {
+			DrawGraph(dec_posX[0], dec_posY[0], decretion[0], true);
+		}
+		else if (dec_posY[0] >= 260) {
+			//薄くなる
+			SetDrawBlendMode(DX_BLENDMODE_ALPHA, alphaNum);
+			DrawGraph(dec_posX[0], dec_posY[0], decretion[0], true);
+
+			SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+			alphaNum -= 2;
+			if (alphaNum == 0) {
+				alphaNum = 0;
+			}
+		}
 
 		break;
 
@@ -139,10 +189,25 @@ void ScenePlay::Draw()
 		break;
 
 	case ID_PLAY_FINSH:
+		if (dec_posY[1] < 259) {
+			DrawGraph(dec_posX[1], dec_posY[1], decretion[1], true);
+		}
+		else if (dec_posY[1] >= 260) {
+			//薄くなる
+			SetDrawBlendMode(DX_BLENDMODE_ALPHA, alphaNum);
+			DrawGraph(dec_posX[1], dec_posY[1], decretion[1], true);
+
+			SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+			alphaNum -= 2;
+			if (alphaNum == 0) {
+				alphaNum = 0;
+			}
+		}
+
 		break;
 	default:
 		break;
-	}*/
+	}
 
 	//デバッグ用
 	//DrawFormatString(0, 0, GetColor(255, 0, 0), "上　%d", BG_PosY[0]);
@@ -150,6 +215,7 @@ void ScenePlay::Draw()
 
 	//DrawFormatString(0, 140, GetColor(60, 60, 50), "十%d", timer.tensPlace);
 	//DrawFormatString(30, 140, GetColor(60, 60, 50), "一%d", timer.oncePlace);
+	//DrawFormatString(30, 140, GetColor(60, 60, 50), "%d", alphaNum);
 }
 
 // タイトル終了処理
@@ -163,11 +229,14 @@ void ScenePlay::Fin()
 		StopSoundMem(sound.se[i]);
 		DeleteSoundMem(sound.se[i]);
 	}
+	//画像の削除
+	DeleteGraph(decretion[0]);
+
 	// プレイシーンに移動
 	g_CurrentSceneID = SCENE_ID_INIT_RESULT;
 }
 
-void Character_Hit_Coin()
+void ScenePlay::Character_Hit_Coin()
 {
 	for (int c = 0; c < COIN_MAX; c++)
 	{
@@ -177,8 +246,12 @@ void Character_Hit_Coin()
 		{
 	   		if (IsHitRect(character[i].x, character[i].y, character[i].w, character[i].h, coin[c].x, coin[c].y, coin[c].w, coin[c].h))
 			{
-				DrawFormatString(100, 240, GetColor(255, 0, 0), "コインヒット");
-				//PlaySoundMem(sound.se[SE_HIT_COIN], DX_PLAYTYPE_BACK, true);
+				//DrawFormatString(100, 240, GetColor(255, 0, 0), "コインヒット");
+				PlaySoundMem(sound.se[SE_HIT_COIN], DX_PLAYTYPE_BACK, true);
+				
+				//スコア用
+				score.score_count++;
+				score.s_coin_hit = true;
 
  				coin[c].IsUse = false;
 				if (coin[c].IsUse == false)
@@ -229,7 +302,7 @@ void Character_Hit_Coin()
 		}
 	}
 }
-void Character_Hit_Hummer()
+void ScenePlay::Character_Hit_Hummer()
 {
 	for (int h = 0; h < HUMMER_MAX; h++)
 	{
@@ -237,7 +310,7 @@ void Character_Hit_Hummer()
 		{
 			if (IsHitRect(character[i].x, character[i].y, character[i].w, character[i].h, hummer[h].x, hummer[h].y, hummer[h].w, hummer[h].h))
 			{
-				DrawFormatString(100, 240, GetColor(255, 0, 0), "ハンマーヒット");
+				//DrawFormatString(100, 240, GetColor(255, 0, 0), "ハンマーヒット");
 				hummer[h].IsUse = false;
 				if (h == 0 || h == 1)
 				{
