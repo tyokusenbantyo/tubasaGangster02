@@ -6,7 +6,8 @@ class SceneTitle
 private:
 	//”wŒi‰æ‘œ
 	int BackGround;
-
+	int ruru_IMG;
+	int count;
 public:
 
 	SceneTitle();

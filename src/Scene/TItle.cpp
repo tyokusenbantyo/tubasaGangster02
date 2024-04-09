@@ -8,7 +8,9 @@
 SceneTitle::SceneTitle()
 {
 	BackGround = 0;		//画像の初期化
+	ruru_IMG = 0;
 	sound.bgm[BGM_OP] = 0;		//BGMの初期化
+	count = 0;
 }
 
 SceneTitle::~SceneTitle() {}
@@ -18,6 +20,7 @@ void SceneTitle::Init()
 {
 	//画像の読み込み
 	BackGround = LoadGraph(TITLE_BACKGROUND_PATH);
+	ruru_IMG = LoadGraph("data/01_TitleImage/ru-ru.png");
 	//キーの初期化
 	InitInput();
 
@@ -38,7 +41,11 @@ void SceneTitle::Step()
 	StepInput();
 
 	//スペースキーを押したら画面移動
- 	if (IsKyePush(KEY_INPUT_SPACE))
+	if (IsKyePush(KEY_INPUT_SPACE) && (count == 0 || count == 1))
+	{
+		count++;
+	}
+ 	if (IsKyePush(KEY_INPUT_SPACE) && count >= 2 )
 	{
 		g_CurrentSceneID = SCENE_ID_FIN_TITLE;
 	}
@@ -47,7 +54,12 @@ void SceneTitle::Step()
 // タイトル描画処理
 void SceneTitle::Draw()
 {
-	DrawGraph(0, 0, BackGround, true);
+	if (count == 0) {
+		DrawGraph(0, 0, BackGround, true);
+	}
+	if (count >= 1) {
+		DrawGraph(0, 0, ruru_IMG, true);
+	}
 }
 
 // タイトル終了処理
